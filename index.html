@@ -15,14 +15,17 @@
             <h2>Giới thiệu</h2>
             <p>Tôi là Phúc An, một học sinh yêu thích công nghệ và học hỏi các kỹ năng lập trình.</p>
             <img src="phucan.jpg" alt="Một hình ảnh do mình chụp" width="300">
+            
+            <!-- Âm thanh -->
             <audio id="audio" loop>
-        <source src="phucan.mp3" type="audio/mpeg">
-        Trình duyệt của bạn không hỗ trợ âm thanh.
-    </audio>
+                <source src="phucan.mp3" type="audio/mpeg">
+                Trình duyệt của bạn không hỗ trợ âm thanh.
+            </audio>
 
-    <!-- Nút bật/tắt âm thanh -->
-    <button id="toggleAudio">Tắt âm thanh</button>
+            <!-- Nút bật/tắt âm thanh -->
+            <button id="toggleAudio">Tắt âm thanh</button>
         </section>
+        
         <section>
             <h2>Sở thích</h2>
             <ul>
@@ -35,5 +38,31 @@
     <footer>
         <p>&copy; 2024 Phúc An. Tất cả các quyền được bảo lưu.</p>
     </footer>
+
+    <script>
+        // Bật/tắt âm thanh
+        const audio = document.getElementById('audio');
+        const toggleButton = document.getElementById('toggleAudio');
+        let isMuted = false;
+
+        // Phát âm thanh khi trang được tải
+        window.onload = function() {
+            audio.play().catch(function(error) {
+                console.log('Âm thanh không thể phát tự động. Vui lòng nhấn nút để bật âm thanh.');
+            });
+        };
+
+        // Thay đổi trạng thái âm thanh
+        toggleButton.addEventListener('click', function() {
+            if (isMuted) {
+                audio.play();
+                toggleButton.textContent = 'Tắt âm thanh';
+            } else {
+                audio.pause();
+                toggleButton.textContent = 'Bật âm thanh';
+            }
+            isMuted = !isMuted;
+        });
+    </script>
 </body>
 </html>
