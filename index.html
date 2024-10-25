@@ -25,7 +25,21 @@
             <!-- Nút bật/tắt âm thanh -->
             <button id="toggleAudio">Tắt âm thanh</button>
         </section>
-        
+
+        <!-- Thêm phần câu hỏi với tickbox -->
+        <section>
+            <h2>Câu hỏi</h2>
+            <p>Bạn có ngu không?</p>
+            <label>
+                <input type="checkbox" id="yes" name="answer" value="yes">
+                Yes
+            </label>
+            <label>
+                <input type="checkbox" id="no" name="answer" value="no">
+                No
+            </label>
+        </section>
+
         <section>
             <h2>Sở thích</h2>
             <ul>
@@ -43,26 +57,4 @@
         // Bật/tắt âm thanh
         const audio = document.getElementById('audio');
         const toggleButton = document.getElementById('toggleAudio');
-        let isMuted = false;
-
-        // Phát âm thanh khi trang được tải
-        window.onload = function() {
-            audio.play().catch(function(error) {
-                console.log('Âm thanh không thể phát tự động. Vui lòng nhấn nút để bật âm thanh.');
-            });
-        };
-
-        // Thay đổi trạng thái âm thanh
-        toggleButton.addEventListener('click', function() {
-            if (isMuted) {
-                audio.play();
-                toggleButton.textContent = 'Tắt âm thanh';
-            } else {
-                audio.pause();
-                toggleButton.textContent = 'Bật âm thanh';
-            }
-            isMuted = !isMuted;
-        });
-    </script>
-</body>
-</html>
+        let isMuted 
